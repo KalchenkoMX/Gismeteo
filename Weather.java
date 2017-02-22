@@ -2,10 +2,10 @@ package com.company;
 public class Weather {
 
     String region;
-    String temperature; //elem1
-    String wind; //  e2
-    String mPress; //  e3
-    String wicon;    // e4
+    String temperature; 
+    String wind; 
+    String mPress; 
+    String wicon;  
     String waterTemp;
 
     public String getLastInfo() {
@@ -16,7 +16,7 @@ public class Weather {
         this.lastInfo = lastInfo;
     }
 
-    String lastInfo; //e7
+    String lastInfo; 
 
 
 
