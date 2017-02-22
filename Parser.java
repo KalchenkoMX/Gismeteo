@@ -1,0 +1,52 @@
+package com.company;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+import java.io.IOException;
+
+
+public class Parser {
+
+    Weather weather;
+
+
+    public Parser() {
+        this.weather = new Weather();
+    }
+
+    public void parserWeather() throws IOException {
+        Document doc = Jsoup.connect("https://www.gismeteo.ua/ua/weather-cherkasy-4956/").get();
+        Elements region = doc.getElementsByAttributeValue("class", "scity"); // Регион: Черкаси, Черкаська область, Україна
+        Elements temperature = doc.getElementsByAttributeValue("class", "temp"); // Температура
+        Elements wind = doc.getElementsByAttributeValue("class", "value m_wind ms"); //Ветер
+        Elements mPress = doc.getElementsByAttributeValue("class", "value m_press torr"); // davlenie
+        Elements wicon = doc.getElementsByAttributeValue("class", "wicon hum"); // влажность
+        Elements waterTemp = doc.getElementsByAttributeValue("class", "value m_temp c"); // воды температура
+        Elements h7Elements = doc.getElementsByAttributeValue("class", "icon date"); //неправильный вывод  м/с миль/год  мм рт. ст. гПа д. рт. ст. % волог. вода вода
+        Element element1 = temperature.get(0);
+        Element element2 = wind.first();
+        Element element3 = mPress.first();
+        Element element4 = waterTemp.get(1);
+        weather.setRegion(region.text().toString());
+        weather.setTemperature(element1.text().toString());
+        weather.setWind(element2.text().toString());
+        weather.setmPress(element3.text().toString());
+        weather.setWicon(wicon.text().toString());
+        weather.setWaterTemp(element4.text().toString());
+        weather.setLastInfo(h7Elements.text().toString());
+
+    }
+
+    public Weather getWeather() throws IOException {
+
+            return this.weather;
+    }
+
+
+}
+
+
+
+
+
