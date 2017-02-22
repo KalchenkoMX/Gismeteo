@@ -1,2 +1,2 @@
 # Gismeteo
-System.out.println("Мой проэкт")
+System.out.println("Мой проэкт");
