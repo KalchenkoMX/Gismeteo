@@ -17,13 +17,13 @@ public class Parser {
 
     public void parserWeather() throws IOException {
         Document doc = Jsoup.connect("https://www.gismeteo.ua/ua/weather-cherkasy-4956/").get();
-        Elements region = doc.getElementsByAttributeValue("class", "scity"); // Регион: Черкаси, Черкаська область, Україна
-        Elements temperature = doc.getElementsByAttributeValue("class", "temp"); // Температура
-        Elements wind = doc.getElementsByAttributeValue("class", "value m_wind ms"); //Ветер
-        Elements mPress = doc.getElementsByAttributeValue("class", "value m_press torr"); // davlenie
-        Elements wicon = doc.getElementsByAttributeValue("class", "wicon hum"); // влажность
-        Elements waterTemp = doc.getElementsByAttributeValue("class", "value m_temp c"); // воды температура
-        Elements h7Elements = doc.getElementsByAttributeValue("class", "icon date"); //неправильный вывод  м/с миль/год  мм рт. ст. гПа д. рт. ст. % волог. вода вода
+        Elements region = doc.getElementsByAttributeValue("class", "scity"); 
+        Elements temperature = doc.getElementsByAttributeValue("class", "temp"); 
+        Elements wind = doc.getElementsByAttributeValue("class", "value m_wind ms"); 
+        Elements mPress = doc.getElementsByAttributeValue("class", "value m_press torr");
+        Elements wicon = doc.getElementsByAttributeValue("class", "wicon hum"); 
+        Elements waterTemp = doc.getElementsByAttributeValue("class", "value m_temp c"); 
+        Elements h7Elements = doc.getElementsByAttributeValue("class", "icon date"); 
         Element element1 = temperature.get(0);
         Element element2 = wind.first();
         Element element3 = mPress.first();
