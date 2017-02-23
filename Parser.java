@@ -10,12 +10,14 @@ public class Parser {
 
     Weather weather;
 
+    public Parser() {
 
-   public Parser() {
         this.weather = new Weather();
+    
     }
 
     public void parserWeather() throws IOException {
+    
         Document doc = Jsoup.connect("https://www.gismeteo.ua/ua/weather-cherkasy-4956/").get();
         Elements region = doc.getElementsByAttributeValue("class", "scity");
         Elements temperature = doc.getElementsByAttributeValue("class", "temp");
@@ -35,18 +37,10 @@ public class Parser {
         weather.setWicon(wicon.text());
         weather.setWaterTemp(element4.text());
         weather.setLastInfo(h7Elements.text());
-
     }
-
+   
     public Weather getWeather() throws IOException {
 
             return this.weather;
     }
-
-
 }
-
-
-
-
-
