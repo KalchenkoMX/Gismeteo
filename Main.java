@@ -9,7 +9,7 @@ public class Main {
         Parser parser = new Parser();
         parser.parserWeather();
         parser.getWeather();
-
+        //sa
         System.out.println(parser.getWeather().toString());
 
 
