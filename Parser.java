@@ -5,14 +5,11 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.io.IOException;
 
-
 public class Parser {
-
     Weather weather;
 
-
    public Parser() {
-        this.weather = new Weather();
+       this.weather = new Weather();
     }
 
     public void parserWeather() throws IOException {
@@ -39,14 +36,8 @@ public class Parser {
     }
 
     public Weather getWeather() throws IOException {
-
             return this.weather;
     }
-
-
 }
-
-
-
 
 
